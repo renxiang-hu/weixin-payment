@@ -1,0 +1,24 @@
+package com.atguigu.paymentdemo.controller;
+
+import com.atguigu.paymentdemo.config.WxPayConfig;
+import com.atguigu.paymentdemo.vo.R;
+import io.swagger.annotations.Api;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@Api(tags = "测试控制器")
+@RestController
+@RequestMapping("/api/test")
+public class TestController {
+
+    @Autowired
+    private WxPayConfig wxPayConfig;
+
+    @GetMapping
+    public R getWinxinConfig(){
+        String mchId = wxPayConfig.getMchId();
+        return R.ok().data("mchId",mchId);
+    }
+}
