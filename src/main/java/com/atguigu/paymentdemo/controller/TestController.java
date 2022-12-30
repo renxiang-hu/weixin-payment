@@ -18,7 +18,7 @@ public class TestController {
 
     @GetMapping
     public R getWinxinConfig(){
-        String mchId = wxPayConfig.getMchId();
-        return R.ok().data("mchId",mchId);
+        String domain = wxPayConfig.getDomain();
+        return R.ok().data("domain",domain);
     }
 }
